@@ -7,13 +7,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prebuild": "run-s clean lint",
+    "prebuild": "run-s clean",
     "build": "parcel build src/index.html --no-source-maps",
     "clean": "rimraf ./dist",
-    "lint": "run-s lint:code lint:style",
-    "lint:code": "eslint --ext ts,tsx src",
-    "lint:style": "stylelint src/**/*.scss",
-    "start": "parcel src/index.html --port 3000"
+    "start": "link-module-alias && NODE_ENV=DEV parcel src/index.html --port 3000"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
@@ -29,7 +26,15 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@types/node": "^14.0.27",
+    "config": "^3.3.1",
+    "dotenv": "^8.2.0",
+    "link-module-alias": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  }
+  },
+  "_moduleAliases": {
+    "~": "dist"
+  },
+  "_moduleAliasIgnoreWarning": true
 }

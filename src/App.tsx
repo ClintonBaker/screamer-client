@@ -1,11 +1,12 @@
 import React from "react";
+import Dashboard from "~pages";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <p>My React App</p>
+      <Dashboard />
     </div>
   );
-}
+};
 
 export default App;
